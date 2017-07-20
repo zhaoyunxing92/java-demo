@@ -16,4 +16,5 @@ public class CounterThread extends Thread {
         Long end = System.currentTimeMillis();
         System.out.println("sun:" + sun + ",耗时：" + (end-start)+":end"+end+":start:"+start);
     }
+    
 }
