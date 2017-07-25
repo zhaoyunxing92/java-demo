@@ -1,4 +1,4 @@
-package com.sunny.thread.demo;
+package thread.demo;
 
 /**
  * @author sunny
