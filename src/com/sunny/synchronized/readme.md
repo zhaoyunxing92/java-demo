@@ -8,9 +8,27 @@ Java语言的关键字，当它用来修饰一个方法或者一个代码块的�
 ### 锁
 * 互斥锁：只能一个线程得到锁，最简单的就是`synchronized`
 
-### Volatile 关键字
-* Volatile是`轻量级`的synchronized，它在多处理器开发中保证了共享变量的`可见性`.
+### Volatile 关键字  [实例代码](../synchronized/Test10.java)
+* Volatile是`轻量级`的synchronized，它在多处理器开发中保证了共享变量的`可见性`. [实例代码](../synchronized/Test10.java)
 * volatile 不能代替synchronized,只能保证可见性.
+
+### Atomicxxx类使用可以保证原子性  [试例代码](../synchronized/Test11.java)
+ * 可以保证原子性，但是不能保证多个方法连续调用的原子性. 
+ * 假如在方法里面其他业务代码就有可能造成代码出现101的情况   [试例代码](../synchronized/Test11.java) lin：19
+ * AtomicInteger 源码
+  ```java
+  // AtomicInteger lin:68
+   private volatile int value;
+  
+      /**
+       * Creates a new AtomicInteger with the given initial value.
+       *
+       * @param initialValue the initial value
+       */
+      public AtomicInteger(int initialValue) {
+          value = initialValue;
+      }
+```
 
 
 
