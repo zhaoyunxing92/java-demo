@@ -8,5 +8,9 @@ Java语言的关键字，当它用来修饰一个方法或者一个代码块的�
 ### 锁
 * 互斥锁 只能一个线程得到锁，最简单的就是`synchronized`
 
+### Volatile 关键字
+* Volatile是`轻量级`的synchronized，它在多处理器开发中保证了共享变量的`可见性`.
+* volatile 不能代替synchronized,只能保证可见性
+
 
 
