@@ -7,7 +7,8 @@ Java语言的关键字，当它用来修饰一个方法或者一个代码块的�
 * `synchronized` 锁定的不是代码块，而是一个`对象`
 * `synchronized` 锁定的是**堆内存**的真实对象而不是栈内存的引用  [试例代码](../synchronized/Test14.java)
 ### 锁
-* 互斥锁：只能一个线程得到锁，最简单的就是`synchronized`
+* 互斥锁：只能一个线程得到锁，最简单的就是`synchronized` 不公平锁
+* 公平锁：根据线程等待的时间排序`等待时间长`的优先执行 (效率低，cpu要计算时间) [试例代码](../reentrantlock/Reentrantlock3.java)
 
 ### Volatile 关键字  [试例代码](../synchronized/Test10.java)
 * Volatile是`轻量级`的synchronized，它在多处理器开发中保证了共享变量的`可见性`. [试例代码](../synchronized/Test10.java)
