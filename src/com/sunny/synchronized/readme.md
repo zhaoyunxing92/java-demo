@@ -30,7 +30,7 @@ Java语言的关键字，当它用来修饰一个方法或者一个代码块的�
           value = initialValue;
       }
 ```
-#### CountDownLatch (门闩)使用  [试例代码](../synchronized/demo1/Container4.java)
+### CountDownLatch (门闩)使用  [试例代码](../synchronized/demo1/Container4.java)
   * `new CountDownLatch(1)` 初始化一个(门闩)
   * `latch.await()`  如果当前计数大于零，则当前线程将被禁用以进行线程调度，并处于休眠状态
   * `latch.countDown()` 减少锁存器的计数，如果计数达到零，释放所有等待的线程
