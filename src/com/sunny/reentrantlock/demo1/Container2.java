@@ -47,8 +47,8 @@ public class Container2<T> {
             while (lists.size() == 0) {
                 consumer.await();  //消费者等待
             }
-            lists.add(t);
-            ++count;
+            t = lists.removeFirst();
+            --count;
             produceer.signalAll();//通知生产者生产
         } catch (InterruptedException e) {
             e.printStackTrace();
