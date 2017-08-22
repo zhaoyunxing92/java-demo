@@ -1,12 +1,39 @@
-ThreadLocal(线程局部变量)  [试例代码](../threadlocal/ThreadLocal2.java)
----------
- 这个类提供`线程局部变量`。 这些变量与其正常的对应方式不同，因为访问一个的每个线程（通过其get或set方法）都有自己独立初始化的变量副本。 ThreadLocal实例通常是希望将状态与线程关联的类中的私有静态字段（例如，用户ID或事务ID）。
-=====
-### 常用方法
- * `get()` 返回当前线程的此线程局部变量的副本中的值。
- * `initialValue()` 返回此线程局部变量的当前线程的`初始值`
- * `remove()` 删除此线程局部变量的当前线程的值。
- * `set(T value)` 将当前线程的此线程局部变量的副本设置为指定的值
-###  和synchronized区别
-* ThreadLocal是使用`空间换时间`，synchronized是使用`时间换空间`，ThreadLocal效率会更高
-* ThreadLocal是每个线程改变不让另外一个线程知道=>空间换时间
+# 并发容器-map
+> map区别
+* `ConcurrentHashMap`
+  * ConcurrentHashMap使用(Segment[分片])锁机制。每个段其实就是一个小的`hashTable`，它们有自己的锁。只要多个修改操作发生在不同的段上，它们就可以并发进行。同样当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。
+  * 存效率高
+* `ConcurrentSkipListMap`
+  * key有顺序
+  * 插入数据慢，获取数据快
+* `Hashtable`
+  * HashTable不允许有`null`值的存在
+  * HashTable中调用put方法时，如果key为`null`，直接抛出`NullPointerException`
+  * HashTable是同步的，效率很低
+  * sychronized意味着在一次仅有一个线程能够更改Hashtable。就是说任何线程要更新Hashtable时要首先获得同步锁，其它线程要等到同步锁被释放之后才能再次获得同步锁更新Hashtable。
+  * hashTable初始化大小 11
+   ```java
+         /** lin 210
+          * Constructs a new, empty hashtable with a default initial capacity (11)
+          * and load factor (0.75).
+          */
+         public Hashtable() {
+             this(11, 0.75f);
+         }
+   ```
+* `HashMap`
+  * HashMap是非线程安全的
+  * HashMap的键和值都`允许`有null值存在，而HashTable则不行。
+  * 因为线程安全的问题，HashMap效率比HashTable的要高
+  * 实现同步方法
+  > Map m = Collections.synchronizeMap(hashMap);
+  * hashMap 初始化 16
+  ```java
+      /**
+       * Constructs an empty <tt>HashMap</tt> with the default initial capacity
+       * (16) and the default load factor (0.75).
+       */
+      public HashMap() {
+          this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+      }
+  ```
