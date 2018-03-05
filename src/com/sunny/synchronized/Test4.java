@@ -4,7 +4,7 @@
  * @date 2017-07-24 13:30
  * @description: 同步方法和非同步方法调用
  * <p>
- * 程序在运行时加锁方法不影响其他方法
+ * 程序在运行时加锁方法不影响其他非同步方法
  * </p>
  */
 public class Test4 {
@@ -23,7 +23,7 @@ public class Test4 {
         System.out.println("method1 start......");
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

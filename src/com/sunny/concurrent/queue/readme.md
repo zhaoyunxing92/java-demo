@@ -101,7 +101,7 @@
    * `add()`    给容器添加数据，容器满时会异常，
    * `put`      容器满了就阻塞
  
-### DelayQueue（延时队列）
+### DelayQueue
    #### 特点
    * 按照时间排序进/出(时间短的先出)
    * 类实现delayed接口
@@ -110,3 +110,39 @@
   #### 特点
    * 数据不进入容器、直接给消费者，速度会更快
    * transfer()时，没有消费者线程会阻塞
+
+### SynchronousQueue
+  #### 特点
+   * 容器为0,也就是不能调用add()方法
+   * 必须消费,也就是put()方法一直阻塞，直到消费者消费 
+   * 内部也是使用TransferQueue
+    
+   ```java
+        /**
+         * Adds the specified element to this queue, waiting if necessary for
+         * another thread to receive it.
+         *
+         * @throws InterruptedException {@inheritDoc}
+         * @throws NullPointerException {@inheritDoc}
+         */
+        public void put(E e) throws InterruptedException {
+            if (e == null) throw new NullPointerException();
+            //立即转让，失败后异常
+            if (transferer.transfer(e, false, 0) == null) {
+                Thread.interrupted();
+                throw new InterruptedException();
+            }
+        }
+   ```  
+## 总结
+ > 阻塞队列
+      
+   * BlockingQueue 下的
+    
+       * ArrayBlockingQueue
+       * LinkedBlockingQueue
+       * TransferQueue
+       * SynchronousQueue
+   * DelayQueue
+   
+源码：[github](https://github.com/zhaoyunxing92/Java-demo) 欢迎各位同学指出问题/建议   
