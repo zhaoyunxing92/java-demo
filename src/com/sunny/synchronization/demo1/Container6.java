@@ -1,4 +1,4 @@
-package demo1;
+package synchronization.demo1;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

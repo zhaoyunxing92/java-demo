@@ -1,3 +1,5 @@
+package synchronization;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

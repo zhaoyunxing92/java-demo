@@ -1,3 +1,5 @@
+package synchronization;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,7 +20,7 @@ public class Test7 {
     }
 
     public static void main(String[] args) {
-        new Test().method1(); //这里锁定的是new出来的this对象，且锁定的是同一个对象
+        new Test().method1(); //这里锁定的是new出来的this对象，且锁定的是同一个对象 
     }
 }
 

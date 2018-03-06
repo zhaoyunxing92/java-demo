@@ -1,3 +1,5 @@
+package synchronization;
+
 /**
  * @author sunny
  * @className PACKAGE_NAME.Test14

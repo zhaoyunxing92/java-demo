@@ -1,4 +1,4 @@
-package demo1;
+package synchronization.demo1;
 
 import java.util.ArrayList;
 import java.util.List;

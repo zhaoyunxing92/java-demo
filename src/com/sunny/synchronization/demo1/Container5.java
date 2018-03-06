@@ -1,4 +1,4 @@
-package demo1;
+package synchronization.demo1;
 
 import java.io.IOException;
 import java.util.Random;

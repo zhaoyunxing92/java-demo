@@ -1,3 +1,5 @@
+package synchronization;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -9,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  *     业务代码对写方法加锁，对读方法不加上容易导致脏读
  * </p>
  */
-public class Test5 {
+public class  Test5 {
     String name;
     double balance;//余额
 
